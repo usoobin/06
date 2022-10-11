@@ -3,18 +3,44 @@
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-
-
-int square (int a)
+int combination(int n,int r)
 {
-	return a*a;
+	return (factorial(n)/(factorial(n-r)*factorial(r)));
+}
+
+int factorial(int num)
+{
+	int i;
+	int res = 1;
+	for(i = 1; i <= num; i++)
+	{
+		res = res *i;
+	}	
+	return res;
+}
+
+
+
+int get_integer()
+{	
+	int num;
+	
+	printf("값을 입력해주세요");
+	scanf("%i", &num);
+	
+	return num;
 }
 
 
 int main(int argc, char *argv[]) 
 {
-	int a =2;
-	a = square(a);
+	int n,r;
+	int result;
 	
-	printf("a=%i\n",a);
+	n = get_integer();
+	r = get_integer();
+	
+	result = combination(n,r);
+	
+	printf("결과값:%i", result);
 }
